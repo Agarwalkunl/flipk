@@ -20,7 +20,7 @@ var crypto = require("crypto");
 const bc = require("bcryptjs");
 require("dotenv").config();
 const sk = "kunal@123";
-const POR = process.env.PORT || 1000;
+const PORT = process.env.PORT || 1000;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -568,4 +568,4 @@ app.post("/orders", (req, resp) => {
   });
 });
 ged();
-app.listen(PORT, console.log("server"));
+app.listen(PORT, console.log("server start 1000"));
