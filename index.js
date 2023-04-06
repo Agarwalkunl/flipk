@@ -18,14 +18,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 var crypto = require("crypto");
 const bc = require("bcryptjs");
+require("dotenv").config();
 const sk = "kunal@123";
-
+const POR = process.env.PORT || 1000;
 const app = express();
 app.use(express.json());
 app.use(cors());
-const client = new MongoClient(
-  "mongodb+srv://pawanag620:0hBv8n1ahmyhg4no@flipkart.f3hnlyb.mongodb.net/data?retryWrites=true&w=majority"
-);
+const client = new MongoClient(process.env.DATABASE);
 let re, db, col, coll, colll;
 const dealData = [
   {
@@ -569,4 +568,4 @@ app.post("/orders", (req, resp) => {
   });
 });
 ged();
-app.listen(1000, console.log("server"));
+app.listen(PORT, console.log("server"));
